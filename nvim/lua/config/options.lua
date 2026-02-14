@@ -11,3 +11,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.expandtab = false
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
+
+-- Diagnostic
+vim.diagnostic.enable(true)
+vim.diagnostic.config({ virtual_text = true })
