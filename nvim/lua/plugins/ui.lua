@@ -2,9 +2,12 @@ return {
 	{
 		"navarasu/onedark.nvim",
 		priority = 1000, -- make sure to load this before all the other start plugins
-		config = function()
+		opts = {
+			style = "darker",
+		},
+		config = function(_, opts)
 			local onedark = require("onedark")
-			onedark.setup({ style = "darker" })
+			onedark.setup(opts)
 			onedark.load()
 		end,
 	},
