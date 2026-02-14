@@ -1,7 +1,7 @@
 return {
+	-- File name and content searching
 	{
 		"nvim-telescope/telescope.nvim",
-		version = "*",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -13,5 +13,14 @@ return {
 			vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 			vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 		end,
+	},
+
+	-- Key bindings hinting
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		opts = {
+			deplay = 0,	
+		},
 	},
 }
