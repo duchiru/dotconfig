@@ -15,33 +15,30 @@ return {
 					["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
 				},
 			},
+			views = {
+				cmdline_popup = {
+        	border = {
+          	style = "none",
+          	padding = { 1, 2 },
+        	},
+        	filter_options = {},
+        	win_options = {
+         		winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+        	},
+      	},
+			},
 			cmdline = {
-				view = "cmdline",
 				format = {
-					search_down = {
-						view = "cmdline",
-					},
-					search_up = {
-						view = "cmdline",
-					},
+					input = { view = "cmdline_popup" },
 				},
 			},
 			presets = {
+				command_palette = true, -- position the cmdline and popupmenu together
 				long_message_to_split = true, -- long messages will be sent to a split
+				inc_rename = false, -- enables an input dialog for inc-rename.nvim
 				lsp_doc_border = false, -- add a border to hover docs and signature help
 			},
 		},
-	},
-
-	-- Status line
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons"
-		},
-		opts = {
-			theme = "auto"
-		}
 	},
 
 	-- Side file tree
@@ -65,7 +62,18 @@ return {
 			require("nvim-tree").setup(opts)
 
 			local api = require("nvim-tree.api")
-			vim.keymap.set("n", "<leader>to", api.tree.open, { desc = "Open/Focus file tree" })
+			vim.keymap.set("n", "<leader>e", api.tree.open, { desc = "Open/Focus file tree" })
 		end,
-	}
+	},
+
+	-- Status line
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons"
+		},
+		opts = {
+			theme = "auto"
+		}
+	},
 }
