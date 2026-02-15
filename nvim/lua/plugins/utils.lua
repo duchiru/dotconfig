@@ -2,6 +2,7 @@ return {
 	-- File name and content searching
 	{
 		"nvim-telescope/telescope.nvim",
+		event = "VeryLazy",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -20,7 +21,7 @@ return {
 		"folke/which-key.nvim",
 		event = "VeryLazy",
 		opts = {
-			deplay = 0,	
+			deplay = 0,
 		},
 	},
 }

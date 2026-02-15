@@ -15,3 +15,6 @@ vim.opt.shiftwidth = 2
 -- Diagnostic
 vim.diagnostic.enable(true)
 vim.diagnostic.config({ virtual_text = true })
+
+-- Swap files
+vim.opt.swapfile = false
