@@ -16,6 +16,19 @@ return {
 		end,
 	},
 
+	-- Better symbol rename
+	{
+		"smjonas/inc-rename.nvim",
+		config = function(_, opts)
+			local inc_rename = require("inc_rename")
+			inc_rename.setup(opts)
+
+			vim.keymap.set("n", "<leader>r", function()
+				return ":IncRename " .. vim.fn.expand("<cword>")
+			end, { desc = "Rename symbol under cursor", expr = true })
+		end,
+	},
+
 	-- Key bindings hinting
 	{
 		"folke/which-key.nvim",
