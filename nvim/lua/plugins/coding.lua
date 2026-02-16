@@ -3,6 +3,10 @@ return {
 	{
 		"hrsh7th/nvim-cmp",
 		event = "VeryLazy",
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"saadparwaiz1/cmp_luasnip",
+		},
 		config = function()
 			local cmp = require("cmp")
 
@@ -24,13 +28,19 @@ return {
 					['<CR>'] = cmp.mapping.confirm({ select = true }),
 				}),
 				sources = cmp.config.sources({
-					-- { name = 'nvim_lsp' },
+					{ name = 'nvim_lsp' },
 					{ name = 'luasnip' },
 				}, {
 					{ name = 'buffer' },
 				})
 			})
 		end,
+	},
+
+	-- LSP completion
+	{
+		"hrsh7th/cmp-nvim-lsp",
+		event = "VeryLazy",
 	},
 
 	-- Snippet system: LuaSnip
