@@ -19,6 +19,7 @@ return {
 	-- Better symbol rename
 	{
 		"smjonas/inc-rename.nvim",
+		event = "VeryLazy",
 		config = function(_, opts)
 			local inc_rename = require("inc_rename")
 			inc_rename.setup(opts)
