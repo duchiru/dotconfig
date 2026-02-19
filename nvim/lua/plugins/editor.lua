@@ -27,4 +27,10 @@ return {
 			end, { desc = "Rename symbol under cursor", expr = true })
 		end,
 	},
+
+	-- Color visualizer
+	{
+		"brenoprata10/nvim-highlight-colors",
+		event = "VeryLazy",
+	},
 }
