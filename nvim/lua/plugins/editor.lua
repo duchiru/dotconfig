@@ -14,9 +14,17 @@ return {
 		end,
 	},
 
-	-- Simplifying using git commands in neovim
+	-- Better symbol rename
 	{
-		"tpope/vim-fugitive",
+		"smjonas/inc-rename.nvim",
 		event = "VeryLazy",
+		config = function(_, opts)
+			local inc_rename = require("inc_rename")
+			inc_rename.setup(opts)
+
+			vim.keymap.set("n", "<leader>r", function()
+				return ":IncRename " .. vim.fn.expand("<cword>")
+			end, { desc = "Rename symbol under cursor", expr = true })
+		end,
 	},
 }
